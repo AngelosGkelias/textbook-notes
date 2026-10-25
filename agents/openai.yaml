@@ -1,0 +1,4 @@
+interface:
+  display_name: "Textbook Notes"
+  short_description: "Create verified engineering textbook notes with Typst"
+  default_prompt: "Use $textbook-notes to turn these source materials into comprehensive English textbook-style notes with checked engineering explanations and useful visuals."
