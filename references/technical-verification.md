@@ -1,6 +1,6 @@
-# Proportionate engineering verification
+# Proportionate technical verification
 
-Read for mathematical and engineering chapters, worked calculations, circuits, technical figures, or suspected source errors. Verification establishes what is supported and under which assumptions; a clean compile, polished diagram, or another agent's approval is not evidence of correctness.
+Read for technical university material, worked calculations, circuits, technical figures, or suspected source errors. Verification establishes what is supported and under which assumptions; a clean compile, polished diagram, or another agent's approval is not evidence of correctness.
 
 ## Choose the consequential checks
 
@@ -30,6 +30,10 @@ Use symbolic algebra, numerical evaluation, simulation, or enumeration when they
 
 | Material | Check the failure modes that change the result |
 |---|---|
+| Mathematics / numerical methods | Definitions and domains, quantifiers, proof implications and converse, existence/uniqueness conditions, algebraic equivalence, convergence/stability assumptions, numerical conditioning and error bounds. |
+| Probability / statistics | Conditioning events and denominators, normalization, independence assumptions, estimator/sample definitions, uncertainty, distribution support, and causal versus associational claims. |
+| Mechanics / physical models | Coordinate/sign conventions, balances and conservation, constitutive assumptions, boundary/initial conditions, regimes, nondimensional groups, and physically meaningful limits. |
+| Algorithms / computer science | Preconditions, loop/state invariants, termination, correctness argument, complexity model, counterexamples, and implementation versus abstract specification. |
 | Digital logic / architecture | Truth table or Boolean equivalence; active-low signals and inversion bubbles; bit width, signedness and overflow; mux selection and state transitions; clock edge, reset and enable behavior; cycle counts and stated pipeline/hazard assumptions. |
 | CMOS / VLSI | Device type, gate/drain/source/body connections and body ties; complementary network topology; reference voltages/current directions; threshold notation and operating region; capacitance/activity definitions, loading, delay and power units; scope of ideal switch or long-channel approximations. |
 | Analog / semiconductor devices | KCL/KVL and reference polarities; bias point before small-signal analysis; dependent-source orientation; region consistency, gain signs, loading and frequency range; assumptions about temperature, device parameters and neglected effects. |
@@ -51,10 +55,12 @@ Use a separate reviewer selectively for difficult derivations, consequential cor
 
 Close verification when:
 
-- The coverage map accounts for all substantive source topics, including the end of the source; examples and self-test answers agree with the explanations.
+- The concept specification accounts for all substantive source objectives, including late and graphical content; worked examples and self-test answers agree with the explanations. This is a coverage prerequisite, not proof of teaching adequacy.
 - Important derivations, intermediate calculations, units, signs, assumptions, and relevant limit/plausibility checks have evidence; technical diagrams represent the stated system.
 - Corrections and consequential supplemental claims have support, appropriate attribution, and stated model limits.
 - No known consequential error remains presented as correct. Remaining source ambiguities or unavailable evidence are localized, explicitly conditional/unresolved, and disclosed as limitations; affected results are not labeled verified.
-- The latest compiled PDF and included figures pass the required visual review, and source preservation/rebuild checks pass.
+- Contradictions among prose, equations, tables, figures, notation, and dependent sections have been checked and resolved or localized explicitly.
+
+Technical closure does not certify teaching adequacy or layout. Apply [pedagogical-review.md](pedagogical-review.md) separately, then final build/layout and input-preservation checks in [visuals-and-build.md](visuals-and-build.md).
 
 Normally use one targeted review followed by correction and rechecking of affected results and their dependents. Repeat or broaden only when a substantive change, new finding, or failed check warrants it. Do not loop over unchanged chapters seeking consensus, add redundant examples to appear thorough, or replace evidence with a stronger model's confidence. If a missing source condition prevents completion, finish independent work and identify the precise unresolved requirement rather than inventing certainty.

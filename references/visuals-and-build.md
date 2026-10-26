@@ -44,11 +44,23 @@ Inspect the full page first, choose a box, generate it, then inspect the **resul
 
 Use per-figure/per-worker provenance records instead of letting several workers append one JSON file concurrently. At integration, collect only included assets and record the teaching purpose, destination, caption, and review state. For new figures record the generating code/tool, source relationship, equations/parameters/data, units, and assumptions.
 
-## Engineering visuals and teaching decisions
+## Visual selection and teaching decisions
 
-Use a visual to teach a relationship that prose alone makes harder to see: mechanism and topology, spatial organization, change over time, qualitative curve shape, parameter trade-off, comparison of alternatives, model limits, or a worked result. Favor a complete informative source diagram over every progressive build of it. Favor a clear English redraw over a cramped untranslated screenshot. Keep essential original notation and map translated labels to it where needed.
+Classify source and proposed visuals during concept analysis, then realize selected figures alongside their explanations:
 
-A useful scientific plot has explicit variables and units, legitimate scales, intelligible legends, model/data provenance, and readable annotations. Distinguish analytical curves computed from a stated model from illustrative sketches and measured/simulated data. Do not draw invented “measured” curves. Include relevant boundaries or limits and avoid visual claims beyond the model's assumptions. Store the model/data separately from styling where practical, and check plotted points against worked calculations.
+| Class | Decision |
+|---|---|
+| Essential | Needed to interpret, reconstruct, or use a substantive concept; preserve the source figure or replace with a demonstrably clearer equivalent retaining all relevant semantics |
+| Valuable but optional | Adds a distinct insight; include when its benefit justifies space and production/review effort |
+| Redundant | Same teaching content already represented; consolidate and retain the best version |
+| Unnecessary | No meaningful educational question answered; exclude |
+| Unsuitable or misleading | Incorrect, incomplete, illegible, or implies unsupported conclusions; repair/replace if essential, otherwise exclude with reason |
+
+Record the teaching question and disposition in the concept specification, linking included assets to their provenance; avoid a duplicate planning manifest. Prioritize mechanisms, mathematical relationships, system architecture, circuit connectivity, causality, operating regions, timing/state changes, parameter sensitivity, design trade-offs, and comparative performance when present. A full slide screenshot or generic flowchart cannot stand in for explanation. Avoid redrawing an already clear source figure just to make it original. If replacement is necessary, explain which learning-relevant feature it improves and verify that no source relationship was lost.
+
+For an important scientific graph, explain the axes (variables, units, normalization and scale), curve behavior, assumptions, meaningful regions/key points, parameter dependencies, and conclusions the student may draw. Include those dependencies when supported by the source/model; identify unavailable information rather than inventing it. Say how a changed condition affects the relationship and why when that is part of the objective. A caption alone is rarely enough for a difficult graph.
+
+Distinguish measured data, simulated data, analytical curves, and illustrative sketches. Preserve legitimate scales and uncertainty where supplied. Do not fabricate measurements, data fits, or unsupported quantitative relations. Store data/model and parameters with generated plots, check representative points/limits against calculations, and label illustrative assumptions. Familiar mathematical geometry also needs correct domains, orientation, and labels.
 
 For an engineering diagram, first establish its semantic specification: component/terminal/node list, Boolean function/truth table, state transitions, or timed event sequence as appropriate. This can be a few lines in the generator or manifest, not a separate formal schema. Generate the drawing from that specification where possible. Trace connections and behaviors against the source and prose using [technical-verification.md](technical-verification.md). Pay particular attention to junction dots, wire crossings, bus widths, ground/reference nodes, transistor/body connections, inversion bubbles, arrow meaning, and clock phases. Neither attractive layout nor successful syntax validation proves the diagram represents the described system.
 

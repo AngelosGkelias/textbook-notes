@@ -1,0 +1,53 @@
+{
+  "cases": [
+    {
+      "id": "brief-important",
+      "source": "micro.pdf p1",
+      "analysis_pass": "Identify convergence versus fixed-point existence as distinct; prioritize error propagation despite terse source; specify local assumptions and a discriminating example.",
+      "content_pass": "Derive error linearization, explain magnitude/sign of derivative and local nature. For 0.5x+1 give r=2 and error halving; distinguish a fixed point from attraction. Do not claim derivative magnitude 1 proves divergence."
+    },
+    {
+      "id": "missing-reasoning",
+      "source": "micro.pdf p2",
+      "analysis_pass": "Require intermediate minimization steps, nonzero denominator, no-intercept assumption and a worked application.",
+      "content_pass": "Differentiate S, set derivative to zero, solve, and justify minimum using positive sum x_i^2; explain residual and fit. Include a consistent small worked example."
+    },
+    {
+      "id": "essential-graph",
+      "source": "micro.pdf p3",
+      "analysis_pass": "Classify saturation graph essential and specify axes, regions, limits, half-maximum and K sensitivity as teaching requirements.",
+      "content_pass": "Actually include a readable source crop or faithful clearer replacement. Explain c and J/Jmax units, K>0, low-c slope, c=K half maximum, high-c plateau, and lower K effect at fixed c. Identify analytical rather than measured data."
+    },
+    {
+      "id": "redundant-figure",
+      "source": "micro.pdf p4",
+      "analysis_pass": "Consolidate repeated graph into p3 and exclude the decoration with reasons.",
+      "content_pass": "Use one teaching graph, no presentation decoration, preserve all distinct technical meaning and record p4 disposition."
+    },
+    {
+      "id": "prerequisite-gap",
+      "source": "micro.pdf p5",
+      "analysis_pass": "Identify conditional probability, prior and total probability as missing prerequisites; require denominator construction and a flag-rate example.",
+      "content_pass": "Explain conditioning and why P(F|A) differs from P(A|F). Build P(F)=0.08+0.18=0.26, giving 4/13 approximately 0.3077. A count/table/tree or equally explicit reasoning must justify the denominator."
+    },
+    {
+      "id": "source-inconsistency",
+      "source": "micro.pdf p6",
+      "analysis_pass": "Flag and verify original L=2Dt and 12 m using dimensions and RMS definition; plan transparent correction rather than silent copying.",
+      "content_pass": "Show 2Dt has area units, L^2=2Dt and L=sqrt(2Dt)=sqrt(12) m approximately 3.464 m. Preserve original claim in correction evidence, state ideal 1D assumptions and distinguish verified correction from interpretation."
+    },
+    {
+      "id": "late-topic",
+      "source": "micro.pdf p7",
+      "analysis_pass": "Include appendix lock ordering as substantive, with exclusivity, holding/waiting and interleaving prerequisites, rather than excluding an appendix.",
+      "content_pass": "Show the two-thread wait cycle and why a consistent total lock order prevents this cycle. State needed lock/order assumptions and avoid claiming it prevents all concurrency bugs or starvation."
+    },
+    {
+      "id": "large-resume",
+      "source": "resume/ (144 pages in 12 sources)",
+      "analysis_pass": "Hash-compare imported state, identify changed module-03 and dependent module-11; preserve valid accepted modules and pending teaching specifications. Plan bounded raw reads, not whole-corpus re-extraction.",
+      "content_pass": "Update module-03 to a=1.10, r=-10 with growing errors except exact fixed-point initialization. Complete modules 11 and 12, check dependency 11, maintain all 12 concept/page dispositions. Unaffected accepted artifacts remain byte-identical; operations show no repeated ingestion of unchanged accepted modules. Distinguish hashing bytes from reading source meaning. Changed/unproven pages must have valid visual inspection evidence tied to the current hash; sampled endpoints or matching extracted text cannot refresh all inspection flags."
+    }
+  ],
+  "grading": "Grade analysis and content separately as pass/fail with source and artifact anchors. A failed essential requirement is a failure, not averaged away. Allow mathematically/pedagogically equivalent treatments; do not match specific prose. Inspect actual graph assets. Unknown or not attempted is not pass."
+}
