@@ -6,6 +6,8 @@ For skill maintenance, not an extra phase in textbook projects. The fixtures sam
 
 Run `python SKILL/evals/make_fixtures.py --out /tmp/notes-eval-UNIQUE` with an available Python containing reportlab. This creates a seven-page synthetic source packet and a 144-page imported resumption project. No API calls, new toolchain, or full textbook run is needed. Existing production helpers and template assets have separate mechanical tests in `evals/test_package.py`.
 
+It also creates `comparison/author/` and `comparison/review/`, each with the same two-page source. Use `--case comparison` to generate only these small cases. Give them to separate fresh sessions: authoring receives only its raw source/request; review receives its source, existing notes/figure, specification, acceptance record and request. The review inputs deliberately contain a wrong redundancy decision; keep that fact and the rubric hidden from the reviewer. For a blind handoff, copy only production skill instructions/assets into a separate skill snapshot, excluding `evals/`, this maintenance reference and its entrypoint link; keep graders, generators and other cases outside the evaluator's input directory.
+
 Give an evaluator only the candidate skill, generated raw sources and request.txt, plus an isolated output directory. Do not expose `evals/rubric.json`, fixture generator code, intended answers, or previous findings before it acts. For resumption, supply its state and accepted artifacts as raw project context. The state is explicitly synthetic imported evidence, not a claim that an earlier model actually processed 144 pages.
 
 For the micro task require the teaching specification to be saved before the sections; freeze it to distinguish successful initial analysis from retrospective planning. The request explicitly selects Markdown plus figure assets so pedagogical testing is independent of compiler availability. Preserve the initial analysis even if later corrections are needed.
@@ -22,6 +24,8 @@ After the run, use [../evals/rubric.json](../evals/rubric.json). For each case r
 6. Detectable equation/units inconsistency.
 7. Substantive late appendix topic.
 8. Large-source completeness and selective reuse after a source change.
+9. Comparison-graph preservation versus a same-topic illustration and optional mathematical extension.
+10. Review of an incorrect specification and acceptance claim despite correct comparison prose and calculus.
 
 Read actual notes, equations, source pages, and figure assets. Do not grade by keywords, headings, length, or model self-reports. Verify worked values independently. For the resumption case compare initial/final artifact hashes, changed concept/dependency state, complete page dispositions, and actual source-read operations where exposed. Hashing input bytes is expected and does not count as semantic reprocessing. Logs alone cannot prove absence of unobserved reads; report that limit if tool traces are unavailable.
 

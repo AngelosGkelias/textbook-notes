@@ -43,6 +43,18 @@
       "content_pass": "Show the two-thread wait cycle and why a consistent total lock order prevents this cycle. State needed lock/order assumptions and avoid claiming it prevents all concurrency bugs or starvation."
     },
     {
+      "id": "comparison-priority",
+      "source": "comparison/author/source.pdf (2 pages)",
+      "analysis_pass": "Keep model comparison distinct from single-exponential analysis. Identify common axes, early/late ordering, crossover and half-height timing as learning requirements. Retain the comparison by source reuse or a faithful equivalent despite absent model equations/calibration. Give the single-model visual an evidence-based disposition; justify any substantial optional integral extension by its educational purpose.",
+      "content_pass": "Include and interpret the readable two-model comparison: dimensionless u=t/T and y; A above B early, crossover between u=1 and 2, B above A late, and B reaching y=0.5 first. Do not infer one model is universally faster/more accurate or fabricate calibration. A single exponential cannot substitute for these relationships, even with correct comparison prose. The exponential and optional integral may be included if useful, but must not displace the comparison. No figure/length quota or preference for omitting rigorous mathematics."
+    },
+    {
+      "id": "specification-review",
+      "source": "comparison/review/ (same source, seeded specification, notes, asset and acceptance record)",
+      "analysis_pass": "Independently challenge the reviewed specification and acceptance record. Recognize that merging both pages into exponential derivation hides a distinct model-comparison objective and that same-topic redundancy and unavailable calibration are invalid justifications here.",
+      "content_pass": "Report concrete source p1 versus notes.md#response/single-model.svg evidence: the actual figure has one curve and preserves neither crossover nor relative threshold/tail behavior of A and B. Correct accompanying prose and valid optional calculus do not close the visual requirement. Identify the false specification decision and closure claim, request local source-graph reuse/faithful replacement plus interpretation and separate comparison criteria, and retain sound derivations unless a specific prioritization defect warrants a change. Do not require inventing data, extra agents, or a full rewrite. Do not edit review inputs."
+    },
+    {
       "id": "large-resume",
       "source": "resume/ (144 pages in 12 sources)",
       "analysis_pass": "Hash-compare imported state, identify changed module-03 and dependent module-11; preserve valid accepted modules and pending teaching specifications. Plan bounded raw reads, not whole-corpus re-extraction.",

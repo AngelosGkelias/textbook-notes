@@ -148,6 +148,39 @@ class PDFHelperTests(unittest.TestCase):
         self.assertEqual([x['id'] for x in state['concepts'] if x['status']=='analyzed'],['module-11','module-12'])
         self.assertEqual(state['concepts'][10]['prerequisites'],['module-03'])
 
+    def test_comparison_only_has_small_separate_inputs(self):
+        from pypdf import PdfReader
+        import xml.etree.ElementTree as ET
+        out=self.root/'comparison-only'
+        self.run_script(SKILL/'evals/make_fixtures.py','--out',out,'--case','comparison')
+        self.assertEqual({p.name for p in out.iterdir()},{'comparison'})
+        author=out/'comparison'/'author'
+        review=out/'comparison'/'review'
+        self.assertEqual({p.name for p in author.iterdir()},{'source.pdf','request.txt'})
+        self.assertEqual({p.name for p in review.iterdir()},
+                         {'source.pdf','request.txt','notes.md','teaching-spec.md',
+                          'single-model.svg','review-record.md'})
+        self.assertEqual((author/'source.pdf').read_bytes(),(review/'source.pdf').read_bytes())
+        pdf=PdfReader(author/'source.pdf')
+        self.assertEqual(len(pdf.pages),2)
+        self.assertIn('Model A',pdf.pages[0].extract_text())
+        self.assertIn('Model B',pdf.pages[0].extract_text())
+        self.assertIn('Optional extension',pdf.pages[1].extract_text())
+        spec=(review/'teaching-spec.md').read_text()
+        self.assertIn(hashlib.sha256((review/'source.pdf').read_bytes()).hexdigest(),spec)
+        for target in re.findall(r'!\[[^]]*\]\(([^)]+)\)',(review/'notes.md').read_text()):
+            asset=review/target
+            self.assertTrue(asset.is_file())
+            ET.parse(asset)
+
+    def test_comparison_cases_are_available_in_default_packet(self):
+        self.assertTrue((self.fixture/'comparison'/'author'/'source.pdf').is_file())
+        self.assertTrue((self.fixture/'comparison'/'review'/'teaching-spec.md').is_file())
+        cases=json.loads((SKILL/'evals/rubric.json').read_text())['cases']
+        ids=[case['id'] for case in cases]
+        self.assertEqual(len(ids),len(set(ids)))
+        self.assertTrue({'comparison-priority','specification-review'} <= set(ids))
+
 
 if __name__=='__main__':
     unittest.main(verbosity=2)

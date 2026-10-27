@@ -4,7 +4,7 @@ Read when reviewing completed sections or integrating the book. This evaluates w
 
 ## Evidence and independence
 
-Compare three actual artifacts: the original source (including rendered graphical content), the concept teaching specification, and the generated chapter with its figures. A worker summary or section-heading list is insufficient. Review the specification itself for concepts it failed to identify; otherwise an incomplete plan can certify an incomplete book.
+Compare three actual artifacts: the original source (including rendered graphical content), the concept teaching specification, and the generated chapter with its figures. A worker summary or section-heading list is insufficient. Review the specification for missed concepts and challenge consequential decisions: omitted source visuals, claimed redundancy, and consolidated objectives that may hide distinct relationships. Check the source relationships against the actual notes and any claimed alternative destination; an author's completed/reviewed status is not evidence that those relationships survived.
 
 Use an independent reviewer for a bounded teaching review where available and warranted. Give raw source ranges, audience assumptions, the specification, actual chapter/figures, and source constraints; do not supply a desired verdict or the author's self-certification. The reviewer may also perform technical checks, but must report teaching evidence separately. Independence does not require a premium model or several reviewers of every simple definition.
 
@@ -36,7 +36,7 @@ Use one concise findings list, incorporated into the existing section/project re
 | Concept and source location | Destination anchor/figure | Concrete failure and evidence | Required local repair | Closure evidence |
 |---|---|---|---|---|
 
-Give the failed question or omitted relationship, not “needs more depth”. Distinguish a missing essential explanation from optional enrichment. If no failure is found, retain representative teach-back evidence and audit scope rather than a generic approval.
+Give the failed question or omitted relationship, not “needs more depth”. Record the source-to-output evidence for challenged decisions in this same findings list, including a defective specification when relevant. Distinguish a missing essential explanation from optional enrichment. If no failure is found, retain representative teach-back evidence and audit scope rather than a generic approval.
 
 Repair the affected section and any prerequisite/dependent passages whose meaning changes. Update a defective specification; otherwise reuse it. Recheck the failed criterion and dependent technical results, then review affected rendered pages after compilation. Broaden review only when a finding reveals a systematic blind spot or a new dependency problem. Do not restart satisfactory chapters or repeat full-document reviews without new evidence.
 

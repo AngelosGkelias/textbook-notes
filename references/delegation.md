@@ -29,6 +29,8 @@ A hard problem should return a concrete question with source location, failed cr
 
 Give a separate reviewer the actual source, teaching specification, chapter, and relevant figures. Assign the complete audit for a bounded source range and deeper teach-back probes for its difficult/consequential concepts, following [pedagogical-review.md](pedagogical-review.md). Do not give a desired answer or ask for generic approval. Ask for source/destination locations, failed understanding actions, missing reasoning or visuals, and local repairs. The reviewer must find defects in the specification as well as the chapter.
 
+If authoring is still in progress, hand over ready sections explicitly with file paths, concept anchors, assets, and changed dependencies. Review the available scope, then await the next handoff rather than repeatedly discovering files that have not been delivered.
+
 For a technical review, give assumptions, actual equations/diagrams, and relevant evidence; ask for reconstruction, counterexamples, or checks of critical steps. Keep pedagogical and technical findings distinguishable even if the same reviewer performs both. Match capability to difficulty rather than assigning several premium reviewers to routine definitions.
 
 ## Integration and stopping

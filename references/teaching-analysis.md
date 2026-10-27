@@ -46,7 +46,7 @@ Use both rather than a single numeric score:
 | Low | High | Bounded but sufficient explanation of the difficult part; provide a usable local prerequisite or cross-reference |
 | Low | Low | Concise complete treatment, perhaps grouped with related concepts |
 
-A brief source remark can be central and difficult. A long slide sequence can be repetition. Neither slide count nor visual prominence determines either judgment. Depth should resolve a concrete student difficulty, not fill a length target.
+A brief source remark can be central and difficult. A long slide sequence can be repetition. Neither slide count nor visual prominence determines either judgment. Depth should resolve a concrete student difficulty, not fill a length target. Justify substantial supplementary derivations in the existing depth rationale by the understanding or application they enable. Preserve necessary mathematical rigor; optional elaboration must not displace essential source objectives or their visual relationships.
 
 ## Teaching architecture and section acceptance
 

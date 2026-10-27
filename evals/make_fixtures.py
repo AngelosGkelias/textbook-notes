@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate small synthetic teaching inputs and a hash-linked resume fixture.
+"""Generate synthetic teaching inputs, comparison review cases and resume state.
 
 Requires reportlab, already common in the document runtime; no model/API calls.
 Outputs only beneath the explicitly selected directory.
@@ -10,6 +10,8 @@ import hashlib
 import json
 import math
 from pathlib import Path
+import shutil
+from textwrap import dedent
 from reportlab.pdfgen import canvas
 
 
@@ -152,13 +154,144 @@ def resume(out):
     return root
 
 
+def comparison(out):
+    """Two-page source plus isolated forward-authoring and seeded review inputs."""
+    root=out/'comparison'
+    author=root/'author'
+    review=root/'review'
+    author.mkdir(parents=True)
+    review.mkdir()
+    source=author/'source.pdf'
+    c=canvas.Canvas(str(source), pagesize=(720,600), invariant=1)
+
+    def plot(curves):
+        x0,y0,w,h=80,100,540,270
+        c.setStrokeColorRGB(0,0,0)
+        c.line(x0,y0,x0+w,y0)
+        c.line(x0,y0,x0,y0+h)
+        c.setFont('Helvetica',11)
+        for u in range(7):
+            c.drawString(x0+w*u/6-3,y0-18,str(u))
+        for v in (0,.5,1):
+            c.drawString(x0-30,y0+h*v-3,str(v))
+        c.drawCentredString(350,55,'Normalized time u = t / T [dimensionless]')
+        c.saveState()
+        c.translate(25,150)
+        c.rotate(90)
+        c.drawString(0,0,'Normalized response y [dimensionless]')
+        c.restoreState()
+        for i,(label,points,color,dash) in enumerate(curves):
+            c.setStrokeColorRGB(*color)
+            c.setDash(dash)
+            path=c.beginPath()
+            path.moveTo(x0+w*points[0][0]/6,y0+h*points[0][1])
+            for u,v in points[1:]:
+                path.lineTo(x0+w*u/6,y0+h*v)
+            c.drawPath(path)
+            c.line(425,414-20*i,450,414-20*i)
+            c.setFillColorRGB(*color)
+            c.drawString(460,410-20*i,label)
+        c.setDash([])
+        c.setFillColorRGB(0,0,0)
+
+    page(c,'Comparing response predictions',[
+        'Objective: compare early response, half-height timing, and late behavior.',
+        'Model A and Model B predict the same normalized quantity after one event.',
+        'Synthetic illustrative model outputs, not measurements or a universal ranking.',
+        'Only this graph is supplied; model equations and calibration data are unavailable.'])
+    plot([
+        ('Model A',list(enumerate([1,.60,.30,.15,.08,.04,.02])),(0,0,0),[]),
+        ('Model B',list(enumerate([1,.45,.32,.23,.16,.11,.08])),(0,.35,.7),[6,3]),
+    ])
+    c.showPage()
+    page(c,'A single-model illustration and an extension',[
+        'Illustrative exponential: y = exp(-u), u = t/T; T > 0 is a time scale.',
+        'It shows one response, with half-height at u = ln(2). It is not a fit to A or B.',
+        'Optional extension: derive integral_0^infinity exp(-m u) du = 1/m, m > 0,',
+        'then differentiate with respect to m.'])
+    points=[(i/20,math.exp(-i/20)) for i in range(121)]
+    plot([('Illustrative exponential',points,(0,0,0),[])])
+    c.save()
+    shutil.copyfile(source,review/'source.pdf')
+    svg_points=' '.join(f'{50+80*u:.3f},{250-200*v:.3f}' for u,v in points)
+    (review/'single-model.svg').write_text(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="600" height="310" viewBox="0 0 600 310">'
+        '<rect width="600" height="310" fill="white"/>'
+        '<path d="M50 50 V250 H530" stroke="black" fill="none"/>'
+        f'<polyline points="{svg_points}" fill="none" stroke="black" stroke-width="2"/>'
+        '<g font-family="sans-serif" font-size="14"><text x="28" y="55">1</text>'
+        '<text x="30" y="254">0</text><text x="525" y="270">6</text>'
+        '<text x="240" y="290">u = t/T [dimensionless]</text>'
+        '<text x="10" y="35">y</text><text x="250" y="75">y = exp(-u)</text></g></svg>')
+    (review/'teaching-spec.md').write_text(dedent(f'''\
+        # Teaching specification
+
+        Source: source.pdf; SHA-256: {sha(source)}. Audience: students with algebra,
+        elementary calculus and basic graph reading. Status: reviewed.
+
+        | ID / source | Objective and depth | Visual decision / criterion | Destination / state |
+        |---|---|---|---|
+        | R / pp.1-2 | Explain normalized response and derive exponential timing; developed | Comparison on p.1 is redundant with the single-model illustration in notes.md#response. No calibration data are available to redraw it. Deriving half-height and the integral establishes understanding of both pages. | notes.md#response; reviewed |
+
+        Page dispositions: p.1 consolidated into R; p.2 R. No substantive omissions.
+        '''))
+    (review/'notes.md').write_text(dedent('''\
+        # Response models
+
+        ## Response
+
+        Normalized time u=t/T and response y are dimensionless; T>0 has time units.
+        In the supplied comparison, B reaches half-height before A. A is initially
+        above B, the curves cross, and B remains above A in the late plotted response.
+        This is an illustrative comparison, not a universal ranking of models.
+
+        ![Illustrative single exponential](single-model.svg)
+
+        The figure shows the response topic using y=exp(-u), not calibrated data.
+        Half-height obeys exp(-u)=1/2, so u=ln(2) and t=T ln(2).
+        The source comparison need not be repeated because both visuals concern decay.
+
+        For m>0, an antiderivative of exp(-m u) is -exp(-m u)/m.
+        Its upper limit is zero and lower limit is -1/m, so the integral from zero
+        to infinity is 1/m. Differentiating this result gives -1/m^2.
+        These derivations supply analytical detail beyond the graphical comparison.
+        '''))
+    (review/'review-record.md').write_text(
+        '# Teaching review\n\nStatus: accepted. All source pages and objectives are fulfilled. '
+        'The single-model figure implements the visual decision; half-height and integral '
+        'derivations are correct. No material teaching gap remains.\n')
+    (author/'request.txt').write_text(
+        'Use the supplied textbook-notes skill to teach source.pdf to students with algebra, '
+        'elementary calculus and basic graph reading. Save analysis.md before notes.md; '
+        'preserve the initial analysis and record later changes separately. Produce concise '
+        'self-contained Markdown notes with necessary figure assets and an evidence-based '
+        'review.md. Cover the substantive source objectives and justify visual/depth choices. '
+        'No Typst build, outside research, installation or delegation. Record actual exposed '
+        'settings/usage, leaving unavailable telemetry unknown. Keep inputs unchanged.\n')
+    (review/'request.txt').write_text(
+        'Use the supplied textbook-notes skill to review source.pdf, teaching-spec.md, '
+        'notes.md, its figure and review-record.md for the declared audience. Report concrete '
+        'teaching failures or acceptance evidence with source/destination locations and local '
+        'repair requirements in findings.md. Check the supplied records against the actual '
+        'source and notes. Do not repair the inputs. No outside research, installation, '
+        'delegation or full textbook/PDF build. Record actual exposed settings/usage; '
+        'leave unavailable telemetry unknown.\n')
+    return root
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--case', choices=('all','comparison'), default='all',
+                        help='Generate all fixtures or only the two-page comparison cases.')
     args=parser.parse_args()
     if args.out.exists():
         parser.error('Use a new output directory to preserve fixture baselines.')
     args.out.mkdir(parents=True)
+    comparison(args.out)
+    if args.case=='comparison':
+        print(args.out.resolve())
+        return
     micro(args.out)
     resume(args.out)
     (args.out/'request.txt').write_text('Use $textbook-notes to turn all seven supplied educational excerpts '
