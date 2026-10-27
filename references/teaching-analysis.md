@@ -1,10 +1,12 @@
 # Concept-level teaching analysis
 
-Read after inspecting the sources and before authoring. The output is a working teaching specification, not another textbook. Reuse it for section authoring, review, and resumption.
+Read when surveying the collection and before analyzing each chapter in detail. The output is one evolving teaching specification, not another textbook. Reuse it for section authoring, review, and resumption.
 
 ## Understand before allocating effort
 
-Inventory the complete source once, recording content hashes and 1-based PDF pages (and printed numbers if different). Read text and visually inspect pages; record inspected ranges so an interruption does not cause another full read. Expand equations, graphical annotations, tables, and diagrams until their meaning is readable. Extraction failures or blank text are unresolved inspection tasks, not grounds for exclusion. For non-PDF sources use stable slide, section, cell, timestamp, or figure identifiers.
+Inventory the complete source once, recording content hashes and 1-based PDF pages (and printed numbers if different). Survey text and every page visually to establish major topics, graphical content, shared notation, chapter scopes, and cross-chapter prerequisites. Include appendices and late material. In the existing page/range index, distinguish overview survey from detailed inspection so an interruption does not cause another full read. For non-PDF sources use stable slide, section, cell, timestamp, or figure identifiers.
+
+For large collections, keep later chapter entries provisional and complete detailed analysis for the next chapter before authoring it. Inspect its entire source scope; expand equations, graphical annotations, tables, and diagrams until their meaning is readable. Inspect additional source regions when needed to resolve a prerequisite or cross-chapter relationship, and update the shared map. Extraction failures or blank text are unresolved inspection tasks, not grounds for exclusion. An overview survey is not completed concept analysis. Small collections can combine these stages without extra records.
 
 Identify distinct technical learning objectives: a mechanism, relationship, assumption, derivation, procedure, interpretation, limitation, or meaningful comparison. One heading can hide several; repeated builds can teach one. Consolidate related objectives when their prerequisite/reasoning chain is shared, while retaining each distinct requirement and all source locations. Keep unresolved interpretations visible.
 
@@ -12,7 +14,7 @@ Ask what a student must understand and do, why it matters, what prior knowledge 
 
 ## One compact, auditable specification
 
-Use a Markdown table with short linked detail blocks, or JSON/YAML if it helps an actual tool. Choose one representation; do not maintain duplicate manifests. A row/block per coherent concept group contains:
+Use a Markdown table with short linked detail blocks, or JSON/YAML if it helps an actual tool. Choose one representation; do not maintain duplicate manifests. Provisional entries need only source scope, topic, known dependencies, and pending analysis status. Before authoring a concept group, refine its row/block to contain:
 
 | Field | Required content |
 |---|---|
@@ -29,7 +31,7 @@ Use shared prerequisite and notation entries instead of repeating them in every 
 
 For an essential graph, name the specific relationships, regions, or parameter comparisons the learner must interpret, and choose source reuse/crop versus a justified replacement. “Add graph” or “explain curve” is not a sufficient teaching requirement.
 
-Pair this with a terse page/range disposition index: concept IDs, consolidated into IDs, or non-substantive exclusion with reason. Every page must be accounted for, including the last; a range is suitable only if its disposition is uniform. A page index cannot certify that every concept on a page was found. During review, inspect the raw page for unrecorded relationships and graphical content as well as checking mapped IDs.
+Pair this with a terse page/range disposition index: provisional chapter assignment with detailed analysis pending, then concept IDs, consolidated into IDs, or non-substantive exclusion with reason. Every page must be accounted for, including the last; a range is suitable only if its disposition is uniform. Pending assignments do not count as completed coverage and must be resolved before delivery. A page index cannot certify that every concept on a page was found. During review, inspect the raw page for unrecorded relationships and graphical content as well as checking mapped IDs.
 
 ## Two independent allocation judgments
 

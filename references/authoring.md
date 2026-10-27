@@ -1,6 +1,6 @@
 # Integrated section authoring
 
-Read when writing a new section or expanding existing notes. Start from the compact specification in [teaching-analysis.md](teaching-analysis.md), not a slide-by-slide expansion or a whole-book first-draft milestone.
+Read when writing a new section or expanding existing notes. Start from the chapter's detailed specification in [teaching-analysis.md](teaching-analysis.md); later chapters may remain provisional. Work chapter by chapter within the collection-wide prerequisite map, not a slide-by-slide expansion or a whole-book first-draft milestone.
 
 ## Bring each section to teaching adequacy
 
