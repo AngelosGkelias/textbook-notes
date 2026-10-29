@@ -1,65 +1,34 @@
-# Concept-level teaching analysis
+# Teaching specification
 
-Read when surveying the collection and before analyzing each chapter in detail. The output is one evolving teaching specification, not another textbook. Reuse it for section authoring, review, and resumption.
+Use one evolving specification for planning, acceptance evidence, and resumption. A Markdown table with short detail blocks is sufficient; use structured data only if a tool needs it. Record the audience's assumed knowledge and source hashes once.
 
-## Understand before allocating effort
+## Identify learning objectives
 
-Inventory the complete source once, recording content hashes and 1-based PDF pages (and printed numbers if different). Survey text and every page visually to establish major topics, graphical content, shared notation, chapter scopes, and cross-chapter prerequisites. Include appendices and late material. In the existing page/range index, distinguish overview survey from detailed inspection so an interruption does not cause another full read. For non-PDF sources use stable slide, section, cell, timestamp, or figure identifiers.
+Within the next chapter's complete source scope, identify mechanisms, relationships, assumptions, derivations, procedures, interpretations, limitations, and meaningful comparisons. One slide can contain several objectives; repeated presentation builds can contain one. Consolidate shared reasoning while retaining distinct relationships and their source locations.
 
-For large collections, keep later chapter entries provisional and complete detailed analysis for the next chapter before authoring it. Inspect its entire source scope; expand equations, graphical annotations, tables, and diagrams until their meaning is readable. Inspect additional source regions when needed to resolve a prerequisite or cross-chapter relationship, and update the shared map. Extraction failures or blank text are unresolved inspection tasks, not grounds for exclusion. An overview survey is not completed concept analysis. Small collections can combine these stages without extra records.
+Ask what the student must understand or do, which reasoning the lecturer likely supplied orally, and which prerequisites are missing. Source length does not measure importance or difficulty. Inspect equations, tables, figures, and annotations at readable resolution; failed extraction remains an inspection task.
 
-Identify distinct technical learning objectives: a mechanism, relationship, assumption, derivation, procedure, interpretation, limitation, or meaningful comparison. One heading can hide several; repeated builds can teach one. Consolidate related objectives when their prerequisite/reasoning chain is shared, while retaining each distinct requirement and all source locations. Keep unresolved interpretations visible.
+## Record decisions that affect teaching
 
-Ask what a student must understand and do, why it matters, what prior knowledge it requires, which steps the lecturer probably supplied orally, and how one could tell whether the student understood. Infer gaps from the reasoning required, not from the amount of source text. Add necessary prerequisites without expanding into an unrelated course.
+Later chapters need only provisional source scopes, topics, and dependencies. Before authoring a concept group, refine its entry:
 
-## One compact, auditable specification
-
-Use a Markdown table with short linked detail blocks, or JSON/YAML if it helps an actual tool. Choose one representation; do not maintain duplicate manifests. Provisional entries need only source scope, topic, known dependencies, and pending analysis status. Before authoring a concept group, refine its row/block to contain:
-
-| Field | Required content |
+| Field | Content |
 |---|---|
-| ID and source | Stable concept ID; file/hash and exact page/region or equivalent location; all consolidated occurrences |
-| Objective and significance | What the learner should understand/use and why it matters |
-| Prerequisites | Concept IDs or assumed prior knowledge; bridge/explanation location for gaps |
-| Importance / difficulty | Separate low/medium/high judgments with a short reason when non-obvious |
-| Teaching requirements / depth | Required mechanism/intuition, mathematical or procedural steps, assumptions, limits and misconceptions; concise, developed, or deep with the reason |
-| Visuals / examples | Essential, valuable optional, redundant, unnecessary, or unsuitable visuals with teaching question and disposition; necessary example/contrast, or reason none is needed |
-| Understanding evidence | Target action or teach-back question and the key elements a successful answer must contain |
-| Destination / state | Section/anchor and evidence locations; analyzed, authored, checked, reviewed, or unresolved |
+| ID / source | Stable concept ID and exact file/page/region or equivalent location; include consolidated occurrences |
+| Objective / prerequisites | Intended understanding or use, why it matters, prerequisite IDs or assumed knowledge, and needed bridges |
+| Importance / difficulty / depth | Separate importance from explanatory difficulty; choose concise, developed, or deep treatment with a short rationale where non-obvious |
+| Teaching requirements | Necessary reasoning steps, intuition, conditions, limits, misconceptions, and example or visual decisions |
+| Understanding criterion | A discriminating question/action and the key elements a successful answer needs |
+| Destination / state | Output anchor, acceptance evidence, and pending, authored, checked, or unresolved status |
 
-Use shared prerequisite and notation entries instead of repeating them in every row. “None needed” is valid when justified by the concept. Do not turn the fields into a demand for a derivation, figure, example, or separate paragraph for every definition. Keep detail only where it changes authoring or review decisions.
+Share notation and prerequisite entries instead of repeating them. Do not create a separate field-filled record for every minor definition. Record visual choices using [visuals-and-build.md](visuals-and-build.md); specify the relationship to teach, not simply “add graph.”
 
-For an essential graph, name the specific relationships, regions, or parameter comparisons the learner must interpret, and choose source reuse/crop versus a justified replacement. “Add graph” or “explain curve” is not a sufficient teaching requirement.
+Pair this with a terse page/range disposition index: pending chapter analysis, concept IDs, consolidation into other IDs, or non-substantive exclusion with a reason. Use ranges only for uniform dispositions. A page assignment tracks scope; it does not prove every concept on that page was identified.
 
-Pair this with a terse page/range disposition index: provisional chapter assignment with detailed analysis pending, then concept IDs, consolidated into IDs, or non-substantive exclusion with reason. Every page must be accounted for, including the last; a range is suitable only if its disposition is uniform. Pending assignments do not count as completed coverage and must be resolved before delivery. A page index cannot certify that every concept on a page was found. During review, inspect the raw page for unrecorded relationships and graphical content as well as checking mapped IDs.
+## Allocate explanation
 
-## Two independent allocation judgments
+Curricular importance reflects prerequisite role, course objectives, and problem-solving relevance. Explanatory difficulty reflects hidden assumptions, missing links, interacting mechanisms, and likely misconceptions. A central easy definition can be concise; a peripheral difficult idea still needs its difficult step explained. Add depth to resolve a learning obstacle, without page, word, figure, or example quotas.
 
-**Curricular importance:** centrality to stated/inferred learning objectives, prerequisite role, connections to later concepts, problem-solving relevance, and significance in the subject.
+Order concepts by dependencies and teach shared foundations once. Add prerequisite bridges needed by the notes' own notation and explanations, as well as those implied by the source. Substantial supplementary derivations should enable a specific understanding or application.
 
-**Explanatory difficulty:** required reasoning steps, missing prerequisite links, subtle or counterintuitive behavior, interacting mechanisms, hidden assumptions, common misconceptions, and difficulty interpreting mathematics or diagrams.
-
-Use both rather than a single numeric score:
-
-| Importance | Difficulty | Typical treatment |
-|---|---|---|
-| High | High | Full causal/derivation chain, necessary prerequisite bridge, discriminating example, essential visuals, deeper independent checks |
-| High | Low | Clear concise explanation, meaningful use/relationship check; do not inflate familiar definitions |
-| Low | High | Bounded but sufficient explanation of the difficult part; provide a usable local prerequisite or cross-reference |
-| Low | Low | Concise complete treatment, perhaps grouped with related concepts |
-
-A brief source remark can be central and difficult. A long slide sequence can be repetition. Neither slide count nor visual prominence determines either judgment. Depth should resolve a concrete student difficulty, not fill a length target. Justify substantial supplementary derivations in the existing depth rationale by the understanding or application they enable. Preserve necessary mathematical rigor; optional elaboration must not displace essential source objectives or their visual relationships.
-
-## Teaching architecture and section acceptance
-
-Order concepts so prerequisites are available before use. Teach shared foundations once and cross-reference them; preserve topic numbering where helpful for navigation. Group concepts with strong dependencies; record essential links across sections and allocate review effort to high-risk links. This architecture is a view of the same specification, not a second administrative artifact.
-
-Choose appropriate understanding criteria per concept. Examples: trace a mechanism and predict a changed condition; derive a relation and name its assumptions; interpret graph regions and a parameter change; reconstruct schematic connectivity; execute a procedure and explain a failure case; calculate with units; compare alternatives under a stated objective. A simple definition may need only a correct distinction and use case. Several criteria may be needed for a coupled system.
-
-Before marking a section checked, answer its selected questions using only the chapter and declared audience prerequisites. Point to the exact explanation, intermediate step, worked result, or interpreted visual supporting the answer. If one must supply missing knowledge mentally, that is a teaching gap. Do not add all possible educational devices mechanically. Mark unresolved criteria and repair the local section; do not proceed on a heading-only coverage claim.
-
-For a calculation or procedure objective, include a criterion that tests use on a representative instance when symbolic reconstruction alone would not demonstrate use. A correct derivation can still leave the student unable to select inputs, execute the method, or interpret the result. Choose an example for that specific gap rather than demanding numerical examples for every formula.
-
-Check prerequisites introduced by your own notation and explanations, not just those visible in the source. A student who can substitute into a formula may still lack the meaning of its variables, operators, averages, or model quantities; probe that meaning where it affects use.
-
-Persist the specification with the source hash, audience assumption, and relevant dependencies. On source changes compare page-level evidence or affected ranges, preserve unchanged work, and update affected concepts and dependents. Do not reuse an acceptance result after its explanation, figure, or prerequisite changed. See [model-routing.md](model-routing.md) for resumption and resource limits.
+Choose criteria that distinguish understanding from recall: predict a mechanism under a changed condition, derive a relation with its assumptions, interpret graph regions, reconstruct connections, execute a procedure, or compare alternatives under a stated objective. A definition may need only a distinction and use case. For calculation/procedure objectives, test a representative application; symbolic reconstruction alone may not establish that the student can select inputs or interpret the result. Several linked concepts can share one criterion.

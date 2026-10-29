@@ -1,4 +1,4 @@
 interface:
   display_name: "Textbook Notes"
   short_description: "Create self-contained university notes with Typst"
-  default_prompt: "Use $textbook-notes to turn these source materials into self-contained university textbook notes with complete concept coverage, checked explanations, and essential visuals, using Balanced resource allocation."
+  default_prompt: "Use $textbook-notes to turn these materials into self-contained university textbook notes."
