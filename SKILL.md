@@ -1,11 +1,11 @@
 ---
-name: textbook-notes
+name: textbook-notes2
 description: Create or expand self-contained university textbook notes from slides, PDFs, readings, or existing notes, using Typst by default. Use for substantial learning documents that need explanations, derivations, worked examples, and teaching visuals, rather than brief summaries or slide decks.
 metadata:
   short-description: Self-contained, verified university notes with Typst
 ---
 
-# Textbook Notes
+# Textbook Notes 2
 
 Sources define the curriculum, not the amount of explanation needed. Cover every distinct substantive concept, including appendices and late material. Teach toward what the student must be able to explain or do; headings and formulas alone do not establish coverage. Default to English and Typst unless the user specifies otherwise. Extend a working project rather than restarting it.
 

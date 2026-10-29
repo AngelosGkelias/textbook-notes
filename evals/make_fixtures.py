@@ -261,7 +261,7 @@ def comparison(out):
         'The single-model figure implements the visual decision; half-height and integral '
         'derivations are correct. No material teaching gap remains.\n')
     (author/'request.txt').write_text(
-        'Use the supplied textbook-notes skill to teach source.pdf to students with algebra, '
+        'Use the supplied textbook-notes2 skill to teach source.pdf to students with algebra, '
         'elementary calculus and basic graph reading. Save analysis.md before notes.md; '
         'preserve the initial analysis and record later changes separately. Produce concise '
         'self-contained Markdown notes with necessary figure assets and an evidence-based '
@@ -269,7 +269,7 @@ def comparison(out):
         'No Typst build, outside research, installation or delegation. Record actual exposed '
         'settings/usage, leaving unavailable telemetry unknown. Keep inputs unchanged.\n')
     (review/'request.txt').write_text(
-        'Use the supplied textbook-notes skill to review source.pdf, teaching-spec.md, '
+        'Use the supplied textbook-notes2 skill to review source.pdf, teaching-spec.md, '
         'notes.md, its figure and review-record.md for the declared audience. Report concrete '
         'teaching failures or acceptance evidence with source/destination locations and local '
         'repair requirements in findings.md. Check the supplied records against the actual '
@@ -294,7 +294,7 @@ def main():
         return
     micro(args.out)
     resume(args.out)
-    (args.out/'request.txt').write_text('Use $textbook-notes to turn all seven supplied educational excerpts '
+    (args.out/'request.txt').write_text('Use $textbook-notes2 to turn all seven supplied educational excerpts '
         'in micro.pdf into small, self-contained notes for first-year university students with algebra and '
         'elementary differentiation, but no prior probability or concurrent programming. First save a compact '
         'concept teaching specification and page dispositions before writing. Then author the corresponding '

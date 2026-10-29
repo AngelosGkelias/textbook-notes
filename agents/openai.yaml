@@ -1,4 +1,4 @@
 interface:
-  display_name: "Textbook Notes"
+  display_name: "Textbook Notes 2"
   short_description: "Create self-contained university notes with Typst"
-  default_prompt: "Use $textbook-notes to turn these materials into self-contained university textbook notes."
+  default_prompt: "Use $textbook-notes2 to turn these materials into self-contained university textbook notes."

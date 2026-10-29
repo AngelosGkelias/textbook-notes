@@ -35,13 +35,13 @@ Crop bounds are normalized left/top/right/bottom on the upright visible page, us
 
 Reuse an existing project or copy `assets/typst-starter/`, replacing its demonstration content. Keep chapters, source/original figures, inventory, and review files separate from final deliverables. Apply the exported wrapper using `#show: textbook.with(...)`; importing a module's top-level `set` rules does not apply them to its caller. Use one level-1 heading per chapter and centralize chapter numbering/breaks in the theme.
 
-Check the installed compiler and fonts with a representative build:
+Compile a representative section early with the bundled helper. It uses an available Typst CLI or the current Python interpreter's `typst` binding; source errors fail the build rather than triggering format conversion.
 
 ```sh
-typst compile --root PROJECT PROJECT/main.typ PROJECT/output/notes.pdf
+python scripts/compile_typst.py --root PROJECT PROJECT/main.typ PROJECT/output/notes.pdf
 ```
 
-If only Python bindings are available, use their supported compile API. Test supported image formats and math attachments in the render; Typst syntax differs from LaTeX. Keep dependencies local where practical. Use a standalone TeX asset for a specialized figure when needed; move the whole book to LaTeX only for a concrete book-level requirement that Typst plus assets cannot reasonably meet. Preserve the editable project if tooling blocks a build.
+Test fonts, image formats, and math attachments in the render; Typst syntax differs from LaTeX. Keep dependencies local where practical. Use a standalone TeX asset for a specialized figure when needed; move the whole book to LaTeX only for a concrete book-level requirement that Typst plus assets cannot reasonably meet. Preserve the editable project and report the native build as blocked if no compiler is available.
 
 For version-specific questions, consult official [image](https://typst.app/docs/reference/visualize/image/), [figure](https://typst.app/docs/reference/model/figure/), [heading](https://typst.app/docs/reference/model/heading/), or [PDF export](https://typst.app/docs/reference/pdf/) documentation as needed.
 
@@ -55,4 +55,4 @@ python scripts/review_pdf.py --images CROP.png FIGURE.png --out PROJECT/review/f
 
 The report and contact sheets are review inputs; rendering leaves inspection pending. Inspect every final page at overview scale, then dense/changed/suspicious pages and figures at readable resolution. Check symbols, captions, tables, placement, orphans, sparse pages, diagnostics, missing glyphs, and unresolved references. Record actual inspection findings; text-length heuristics cannot judge figure-heavy pages.
 
-Deliver current PDF, editable Typst sources, included crop provenance, figure generators/data or editable diagrams, and consequential check scripts. Record actual build/generation commands, tool versions, fonts, dependencies, and seeds where relevant. Rebuild from the recorded root with project-relative asset paths and current assets; eliminate dependencies on temporary worker paths. Keep diagnostic intermediates out of deliverables.
+Deliver current PDF, editable Typst sources, included crop provenance, figure generators/data or editable diagrams, and consequential check scripts. Include the build helper in the project if used. Record actual build/generation commands, tool versions, fonts, dependencies, and seeds where relevant. Rebuild the final native entrypoint with current assets from the recorded root and inspect that resulting PDF; an alternate-format PDF does not validate native sources. Use project-relative paths and eliminate temporary worker dependencies. Keep diagnostic intermediates out of deliverables.
